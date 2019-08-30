@@ -1,5 +1,4 @@
 colorscheme koehler
-silent !cd Documents
 command! MakeTags !ctags -R . 
 let g:netrw_banner=0 "disable banner
 let g:netrw_browse_split=4 "open in prior window

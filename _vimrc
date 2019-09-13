@@ -18,6 +18,7 @@ au GUIEnter * simalt ~x
 set encoding=utf-8
 set path+=**
 set wildmenu
+set tabstop=4 shiftwidth=4 expandtab
 "to basically keymap a macro:
 "nnoremap [trigger] :-1read $HOME/.vim/... <CR>
 "will read the file and yank the contents into cursor pos

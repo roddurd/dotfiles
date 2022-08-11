@@ -3,7 +3,7 @@ packloadall
 set splitright
 set splitbelow
 set cursorline
-colorscheme delek
+colorscheme koehler
 syntax enable
 set number
 set relativenumber
@@ -85,7 +85,5 @@ set foldenable foldlevelstart=0 foldnestmax=10 foldmethod=marker
 " highlight last inserted text
 nnoremap gV `[v`]
 
-"pathogen
-execute pathogen#infect()
 syntax on
 filetype plugin indent on

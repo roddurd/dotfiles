@@ -3,6 +3,7 @@ packloadall
 set splitright
 set splitbelow
 set cursorline
+highlight CursorLine ctermbg=Yellow
 colorscheme koehler
 syntax enable
 set number

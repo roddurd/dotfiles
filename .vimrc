@@ -36,12 +36,10 @@ nnoremap <leader>cpp :-1read $HOME/vimsnippets/cppTemplate.txt<CR>7j
 nnoremap <leader>m :!make<CR><CR>
 
 " edit + source rc files
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ef :vsp ~/.config/fish/conf.d<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
-nnoremap <leader>eb :vsp ~/.bashrc<CR>
-
-nnoremap <leader>rv :source $MYVIMRC<CR>
+nnoremap <leader>vv :vsp $MYVIMRC<CR>
+nnoremap <leader>vz :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+nnoremap <leader>sz :source ~/.zshrc<CR>
 
 " apache reload for website 
 nnoremap <leader>rr :!sudo apache2 restart<CR><CR>
@@ -57,10 +55,16 @@ nnoremap <leader>/ :nohlsearch<CR>
 "yank entire file
 nnoremap <leader>y ggVG”+y<esc>
 
+"delete entire file
+nnoremap <leader>c ggVGc
+
+" yank to system clipboard
+set clipboard=unnamed
+
 " vim shortcuts
 nnoremap ; :
 vnoremap ; :
-nnoremap <leader>w :wq<cr>
+nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 
 " paste last yanked but not deleted text
@@ -78,7 +82,8 @@ vmap <leader>k :m'<-2<cr>`>my`<mzgv`yo`z
 
 " pressing * searches for the current word
 " Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+"vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
+vnoremap * y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " folding
 set foldenable foldlevelstart=0 foldnestmax=10 foldmethod=marker

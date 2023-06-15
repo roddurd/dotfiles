@@ -1,10 +1,16 @@
 let mapleader=","
-packloadall
+
+
 set splitright
 set splitbelow
 set cursorline
-highlight CursorLine ctermbg=Yellow
-colorscheme koehler
+set termguicolors
+
+" aesthetics
+"highlight CursorLine ctermbg=Yellow
+"colorscheme koehler
+colorscheme catppuccin_mocha
+
 syntax enable
 set number
 set relativenumber
@@ -91,5 +97,5 @@ set foldenable foldlevelstart=0 foldnestmax=10 foldmethod=marker
 " highlight last inserted text
 nnoremap gV `[v`]
 
-syntax on
-filetype plugin indent on
+" uncomment below to enable/load plugins
+" packloadall

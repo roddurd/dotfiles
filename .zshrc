@@ -2,13 +2,18 @@
 autoload -U colors && colors
 PS1="%F{red}[%F{blue}%n %F{cyan}%c%F{red}]%f$%b "
 
-# Command aliases
+# Homebrew aliases
 alias bi="brew install"
+alias bic="brew install --cask"
+alias bin="brew info"
 alias bs="brew search"
+
+# Misc aliases
 alias code="open -a 'Visual Studio Code'"
 alias df="df -h"
 alias free="free -m"
 alias grep="grep --color=auto"
+alias ls="ls --color"
 alias v=vim
 
 # Aliases for editing and sourcing config files
@@ -21,6 +26,14 @@ alias ss="source ~/.skhdrc"
 alias sv="source ~/.vimrc"
 alias sy="source ~/.yabairc"
 alias sz="source ~/.zshrc"
+
+# Git aliases
+alias ga="git add"
+alias gall="git add ."
+alias gcl="git clone"
+alias gcm="git commit"
+alias gp="git pull"
+alias gph="git push"
 
 # Get top process eating memory
 alias mem='ps auxf | sort -nr -k 4 | head -5'

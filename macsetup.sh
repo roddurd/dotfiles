@@ -21,10 +21,13 @@ brew install --cask  \
   docker             \
   fl-studio          \
   obs                \
+  obsdian            \
   rectangle          \
   spotify            \
+  telegram           \
   visual-studio-code \
-  warp
+  warp               \
+  whatsapp
   
 # ---- non homebrew stuff ------
 

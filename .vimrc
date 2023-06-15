@@ -9,7 +9,7 @@ syntax enable
 set number
 set relativenumber
 filetype indent on
-command! MakeTags !ctags -R . 
+command! MakeTags !ctags -R .
 let g:netrw_banner=0 "disable banner
 let g:netrw_browse_split=4 "open in prior window
 let g:netrw_altv=1 "open split to the right
@@ -28,7 +28,7 @@ set path+=**
 set wildmenu
 
 " tab = 4 spaces. 80 char line max.
-set expandtab tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent 
+set expandtab tabstop=4 softtabstop=4 shiftwidth=4 textwidth=80 autoindent
 "to basically keymap a macro:
 "nnoremap [trigger] :-1read $HOME/.vim/... <CR>
 "will read the file and yank the contents into cursor pos
@@ -41,7 +41,7 @@ nnoremap <leader>vz :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 nnoremap <leader>sz :source ~/.zshrc<CR>
 
-" apache reload for website 
+" apache reload for website
 nnoremap <leader>rr :!sudo apache2 restart<CR><CR>
 
 set showmatch " match braces with highlighting

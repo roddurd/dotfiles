@@ -34,6 +34,7 @@ alias gcl="git clone"
 alias gcm="git commit"
 alias gp="git pull"
 alias gph="git push"
+alias gs="git status"
 
 # Get top process eating memory
 alias mem='ps auxf | sort -nr -k 4 | head -5'

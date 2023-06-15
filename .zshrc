@@ -8,6 +8,13 @@ alias bic="brew install --cask"
 alias bin="brew info"
 alias bs="brew search"
 
+# Quick navigation
+alias h="cd ~"
+alias c="cd ~/Documents/Code"
+alias d="cd ~/Documents"
+alias rd="ssh rd"
+
+
 # Misc aliases
 alias code="open -a 'Visual Studio Code'"
 alias df="df -h"
@@ -16,22 +23,29 @@ alias grep="grep --color=auto"
 alias ls="ls --color"
 alias v=vim
 
+# fzf functions
+# magic cd with optional argument to prefill query
+mcd() {
+  cd "$(find . -type d -print | fzf --query="$1" --bind 'j:down,k:up,ctrl-j:preview-down,ctrl-k:preview-up')"
+}
+
+
 # Aliases for editing and sourcing config files
 alias vs="vim ~/.skhdrc"
 alias vv="vim ~/.vimrc"
 alias vy="vim ~/.yabairc"
 alias vz="vim ~/.zshrc"
 
-alias ss="source ~/.skhdrc"
+alias ss="skhd --restart-service"
 alias sv="source ~/.vimrc"
-alias sy="source ~/.yabairc"
+alias sy="yabai --restart-service"
 alias sz="source ~/.zshrc"
 
 # Git aliases
 alias ga="git add"
 alias gall="git add ."
 alias gcl="git clone"
-alias gcm="git commit"
+alias gcm="git commit -m"
 alias gp="git pull"
 alias gph="git push"
 alias gs="git status"
@@ -94,11 +108,8 @@ function path {
 } 
 
 
-# Added for cyberpeacock_login
-export PATH="/Users/206764881/Library/CloudStorage/OneDrive-NBCUniversal/My Documents/Code:$PATH"
-# Added for ruby
-export PATH="/opt/homebrew/opt/ruby/bin:/usr/local/lib/ruby/gems/3.2.2/bin:$PATH"
-
+# Allow fzf to see hidden files and directories
+export FZF_DEFAULT_COMMAND='find .'
 
 # Activate syntax highlighting plugin
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

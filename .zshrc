@@ -10,8 +10,8 @@ alias bs="brew search"
 
 # Quick navigation
 alias h="cd ~"
-alias c="cd ~/Documents/Code"
-alias d="cd ~/Documents"
+alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
+alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
 alias rd="ssh rd"
 
 
@@ -49,6 +49,11 @@ alias gcm="git commit -m"
 alias gp="git pull"
 alias gph="git push"
 alias gs="git status"
+
+# Python and pip aliases
+alias py="python3"
+alias pi="pip3 install"
+alias pfr="pip3 freeze > requirements.txt"
 
 # Get top process eating memory
 alias mem='ps auxf | sort -nr -k 4 | head -5'
@@ -106,7 +111,6 @@ function manv {
 function path {
     echo $PATH | tr ':' '\n'
 } 
-
 
 # Allow fzf to see hidden files and directories
 export FZF_DEFAULT_COMMAND='find .'

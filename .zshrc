@@ -41,6 +41,7 @@ alias vv="vim ~/.vimrc"
 alias vy="vim ~/.yabairc"
 alias vz="vim ~/.zshrc"
 
+alias s=source
 alias ss="skhd --restart-service"
 alias sy="yabai --restart-service"
 alias sz="source ~/.zshrc"

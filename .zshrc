@@ -1,6 +1,9 @@
 # Enable colors and change prompt:
 autoload -U colors && colors
-PS1="%F{red}[%F{blue}%n %F{cyan}%c%F{red}]%f$%b "
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+PS1="%F{red}[%F{blue}%n %F{cyan}%c%F{red}]%F{green}$(parse_git_branch)%f $%b "
 
 # Homebrew aliases
 alias bi="brew install"
@@ -12,6 +15,7 @@ alias bs="brew search"
 alias h="cd ~"
 alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
 alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
+alias dot="cd ~/dotfiles"
 alias rd="ssh rd"
 
 
@@ -42,8 +46,10 @@ alias sy="yabai --restart-service"
 alias sz="source ~/.zshrc"
 
 # Git aliases
+alias g=git
 alias ga="git add"
 alias gall="git add ."
+alias gb="git branch"
 alias gcl="git clone"
 alias gcm="git commit -m"
 alias gp="git pull"

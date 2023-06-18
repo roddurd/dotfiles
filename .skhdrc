@@ -25,9 +25,20 @@ shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
 # -- Modifying Window Size --
 # maximize a window
 shift + alt - m : yabai -m window --toggle zoom-fullscreen
+shift + cmd - f : yabai -m window --toggle native-fullscreen
 
 # balance out tree of windows (resize to occupy same area)
 shift + alt - e : yabai -m space --balance
+
+# resize window
+ctrl + shift - h : yabai -m window --resize left:-50:0; \
+                  yabai -m window --resize right:-50:0
+ctrl + shift - j : yabai -m window --resize bottom:0:50; \
+                  yabai -m window --resize top:0:50
+ctrl + shift - k : yabai -m window --resize top:0:-50; \
+                  yabai -m window --resize bottom:0:-50
+ctrl + shift - l : yabai -m window --resize right:50:0; \
+                  yabai -m window --resize left:50:0
 
 # -- Moving Windows Around --
 # swap windows

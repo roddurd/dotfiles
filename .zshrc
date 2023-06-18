@@ -26,6 +26,7 @@ alias free="free -m"
 alias grep="grep --color=auto"
 alias ls="ls --color"
 alias v=vim
+alias w="open -n -a Warp . &&  exit"
 
 # fzf functions
 # magic cd with optional argument to prefill query
@@ -41,7 +42,6 @@ alias vy="vim ~/.yabairc"
 alias vz="vim ~/.zshrc"
 
 alias ss="skhd --restart-service"
-alias sv="source ~/.vimrc"
 alias sy="yabai --restart-service"
 alias sz="source ~/.zshrc"
 

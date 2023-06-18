@@ -1,15 +1,17 @@
 let mapleader=","
 
-
 set splitright
 set splitbelow
 set cursorline
-set termguicolors
 
 " aesthetics
-"highlight CursorLine ctermbg=Yellow
-"colorscheme koehler
-colorscheme catppuccin_mocha
+if $TERM_PROGRAM == "Apple_Terminal"
+  colorscheme koehler
+else
+  set termguicolors
+  colorscheme catppuccin_mocha
+endif
+
 
 syntax enable
 set number

@@ -5,7 +5,7 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 set_prompt() {
-    PS1="%F{red}[%F{blue}%n %F{cyan}%c%F{red}]%F{green}%{$(parse_git_branch)%f $%b "
+    PS1="%F{red}[%F{blue}%n %F{cyan}%c%F{red}]%F{green}$(parse_git_branch)%f $%b "
 }
 # updates prompt every time a command is run
 precmd_functions+=set_prompt
@@ -16,13 +16,17 @@ alias bic="brew install --cask"
 alias bin="brew info"
 alias bs="brew search"
 
-# Quick navigation
+# Quick navigation (user dependent)
 alias h="cd ~"
-alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
-alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
 alias dot="cd ~/dotfiles"
-alias rd="ssh rd"
-
+if [ $(whoami) = 'roddur' ]; then
+    alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
+    alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
+    alias rd="ssh rd"
+else
+    alias c="cd ~/One\ Drive/My\ Documents/Code"
+    alias d="cd ~/One\ Drive/My\ Documents"
+fi
 
 # Misc aliases
 alias df="df -h"

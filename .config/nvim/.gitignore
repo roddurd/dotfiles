@@ -1,0 +1,19 @@
+# packer
+packer_compiled.lua
+
+# swap, backup, undo files
+*.swp
+*.swo
+*.swm
+*.bak
+*.undodir
+
+# sessions
+Session.vim
+sessions/*
+
+# auto-generated tags
+tags
+
+# temp files
+*~

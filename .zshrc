@@ -25,8 +25,8 @@ if [ $(whoami) = 'roddur' ]; then
     alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
     alias rd="ssh rd"
 else
-    alias c="cd ~/One\ Drive/My\ Documents/Code"
-    alias d="cd ~/One\ Drive/My\ Documents"
+    alias c="cd /Users/206764881/Library/CloudStorage/OneDrive-NBCUniversal/My\ Documents/Code/"
+    alias d="cd /Users/206764881/Library/CloudStorage/OneDrive-NBCUniversal/My\ Documents/"
 fi
 
 # Misc aliases

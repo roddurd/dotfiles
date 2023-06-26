@@ -12,11 +12,17 @@ vim.keymap.set("n", "<leader>w", ":w<cr>")
 vim.keymap.set("n", "<leader>q", ":q<cr>")
 vim.keymap.set("n", "<leader>fq", ":q!<cr>")
 
--- vimdow navigation
+-- vimdow creation and navigation
+vim.keymap.set({"n", "v"}, "<leader>sh", "<C-w>h") -- horizontal
+vim.keymap.set({"n", "v"}, "<leader>sv", "<C-w>v") -- vertical
+vim.keymap.set({"n", "v"}, "<leader>s=", "<C-w>=") -- make splits equal
+vim.keymap.set({"n", "v"}, "<leader>sx", ":close<cr>") -- make splits equal
+
 vim.keymap.set({"n", "v", "i"}, "<C-k>", "<C-w><Up>")
 vim.keymap.set({"n", "v", "i"}, "<C-j>", "<C-w><Down>")
 vim.keymap.set({"n", "v", "i"}, "<C-h>", "<C-w><Left>")
 vim.keymap.set({"n", "v", "i"}, "<C-l>", "<C-w><Right>")
+
 
 -- netrw file explorer
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)

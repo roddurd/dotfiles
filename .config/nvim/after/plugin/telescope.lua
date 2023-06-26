@@ -9,6 +9,14 @@ require('telescope').setup{
       },
     },
   },
+  pickers = {
+      find_files = {
+          hidden = true
+      },
+      git_files = {
+          hidden = true
+      }
+  }
 }
 
 

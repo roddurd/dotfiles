@@ -18,6 +18,7 @@ alias bs="brew search"
 
 # Quick navigation (user dependent)
 alias h="cd ~"
+alias con="cd ~/.config"
 alias dot="cd ~/dotfiles"
 if [ $(whoami) = 'roddur' ]; then
     alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
@@ -33,8 +34,10 @@ alias df="df -h"
 alias free="free -m"
 alias grep="grep --color=auto"
 alias ls="ls --color"
+alias n=nvim
 alias v=vim
-alias w="open -n -a Warp . &&  exit"
+# try forcing myself to use nvim always
+#alias vim=nvim
 
 # fzf functions
 # magic cd with optional argument to prefill query

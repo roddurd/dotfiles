@@ -12,15 +12,12 @@ else
   colorscheme catppuccin_mocha
 endif
 
-
 syntax enable
 set number
 set relativenumber
 filetype indent on
-command! MakeTags !ctags -R .
+
 let g:netrw_banner=0 "disable banner
-let g:netrw_browse_split=4 "open in prior window
-let g:netrw_altv=1 "open split to the right
 let g:netrw_liststyle=3 "tree view
 " vimdow navigation
 noremap <C-k> <C-w><Up>
@@ -28,9 +25,7 @@ noremap <C-j> <C-w><Down>
 noremap <C-h> <C-w><Left>
 noremap <C-l> <C-w><Right>
 inoremap lkj <esc>
-set guifont=Courier\ New:h11
-"fullscreen, i'm pretty sure
-au GUIEnter * simalt ~x
+
 set encoding=utf-8
 set path+=**
 set wildmenu
@@ -74,6 +69,7 @@ nnoremap ; :
 vnoremap ; :
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>fq :q!<cr>
 
 " paste last yanked but not deleted text
 nmap <leader>p "0p

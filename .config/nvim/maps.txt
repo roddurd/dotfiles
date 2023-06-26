@@ -1,0 +1,37 @@
+Navigation
+----------
+vimdow navigation                                                 Ctrl + [hjkl]
+netrw file explorer                                                          ,e
+telescope find files                                                        ,ff
+telescope grep (filename + code)                                             ,g
+telescope find git files                                                  <C-p>
+
+
+Copying & Pasting
+-----------------
+move selected lines in visual mode                                         [JK]
+paste & send selected to void buffer                                         ,p
+yank [...] into system clipboard                                             ,y
+
+Search & Replace
+----------------
+search for word under cursor                                                  *
+replace word under cursor everywhere in file                                 ,s
+
+LSP
+---
+select previous suggestion                                                <C-p>
+select next suggestion                                                    <C-n>
+confirm suggestion                                                        <C-y>
+complete                                                              <C-Space>
+go to definition                                                             gd
+hover                                                                         K
+search workspace symbol                                                     ,ws
+TODO: fill out the rest
+
+Misc
+----
+make this file executable                                                    ,x
+make the characters rain down!                                               ,m
+source this file                                                             ,,
+

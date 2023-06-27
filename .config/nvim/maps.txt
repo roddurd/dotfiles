@@ -1,10 +1,20 @@
-Navigation
-----------
+Navigation & Windows
+--------------------
 vimdow navigation                                                 Ctrl + [hjkl]
-netrw file explorer                                                          ,e
+file explorer                                                                ,e
+maximize split                                                    <C-m> or <cr>
+
+split horizontally                                                          ,sh
+split vertically                                                            ,sv
+equalize splits                                                             ,s= 
+
 telescope find files                                                        ,ff
-telescope grep (filename + code)                                             ,g
-telescope find git files                                                  <C-p>
+telescope find git files                                                    ,fg
+telescope grep current word                                                 ,fc
+telescope live grep                                                         ,fs
+telescope buffers                                                           ,fb
+telescope help tags                                                         ,fh
+
 
 
 Copying & Pasting
@@ -13,25 +23,46 @@ move selected lines in visual mode                                         [JK]
 paste & send selected to void buffer                                         ,p
 yank [...] into system clipboard                                             ,y
 
+
+
 Search & Replace
 ----------------
 search for word under cursor                                                  *
 replace word under cursor everywhere in file                                 ,s
 
-LSP
----
-select previous suggestion                                                <C-p>
-select next suggestion                                                    <C-n>
-confirm suggestion                                                        <C-y>
+Comment
+-------
+toggle comment selection (Visual)                                            gc
+toggle comment selection blockwise (Visual)                                  gb
+toggle comment line (Normal)                                                gcc
+
+
+LSP & Completion
+----------------
+select next suggestion                                                    <C-j>
+select previous suggestion                                                <C-k>
+confirm suggestion                                                        <cr>
 complete                                                              <C-Space>
 go to definition                                                             gd
 hover                                                                         K
 search workspace symbol                                                     ,ws
 TODO: fill out the rest
 
+
+
+Surround
+--------
+surround motion in character                                      ys[...][char]
+delete surrounding character                                           ds[char]
+change surrounding character                                   cs[char1][char2]
+
+
+
 Misc
 ----
 make this file executable                                                    ,x
-make the characters rain down!                                               ,m
+make the characters rain down!                                              ,m
 source this file                                                             ,,
-
+packer install                                                              ,pi
+packer status                                                               ,ps
+toggle transparency                                                         ,tt

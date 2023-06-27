@@ -1,9 +1,9 @@
--- open shortcuts cheatsheet 
-vim.keymap.set({"n", "v"}, "<leader>c", ":sp ~/.config/nvim/maps.txt<cr>")
-vim.keymap.set({"n", "v"}, "<leader>cv", ":vsp ~/.config/nvim/maps.txt<cr>")
-
 vim.g.mapleader = ","
-vim.keymap.set({"n", "v", "i"}, "lkj", "<Esc>")
+
+-- open shortcuts cheatsheet
+vim.keymap.set({ "n", "v" }, "<leader>c", ":sp ~/.config/nvim/maps.txt<cr>")
+vim.keymap.set({ "n", "v" }, "<leader>cv", ":vsp ~/.config/nvim/maps.txt<cr>")
+vim.keymap.set({ "v", "i" }, "lkj", "<Esc>")
 
 -- essential shortcuts
 vim.keymap.set("n", ";", ":")
@@ -13,24 +13,20 @@ vim.keymap.set("n", "<leader>q", ":q<cr>")
 vim.keymap.set("n", "<leader>fq", ":q!<cr>")
 
 -- vimdow creation and navigation
-vim.keymap.set({"n", "v"}, "<leader>sh", "<C-w>h") -- horizontal
-vim.keymap.set({"n", "v"}, "<leader>sv", "<C-w>v") -- vertical
-vim.keymap.set({"n", "v"}, "<leader>s=", "<C-w>=") -- make splits equal
-vim.keymap.set({"n", "v"}, "<leader>sx", ":close<cr>") -- make splits equal
-
-vim.keymap.set({"n", "v", "i"}, "<C-k>", "<C-w><Up>")
-vim.keymap.set({"n", "v", "i"}, "<C-j>", "<C-w><Down>")
-vim.keymap.set({"n", "v", "i"}, "<C-h>", "<C-w><Left>")
-vim.keymap.set({"n", "v", "i"}, "<C-l>", "<C-w><Right>")
+vim.keymap.set({ "n", "v" }, "<leader>sh", "<C-w>h")     -- horizontal
+vim.keymap.set({ "n", "v" }, "<leader>sv", "<C-w>v")     -- vertical
+vim.keymap.set({ "n", "v" }, "<leader>s=", "<C-w>=")     -- make splits equal
 
 
--- netrw file explorer
-vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+-- file explorer
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<cr>")
 
 -- Move visually selected lines up and down, auto indent if applicable
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- toggle highlight last search results
+vim.keymap.set("n", ",/", ":set hlsearch!<cr>")
 -- pressing * searches for the current word
 vim.keymap.set("v", "*", "y/\\V<C-R>=escape(@\",'/\\')<CR><CR>")
 
@@ -44,18 +40,21 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- paste but deleted selected text into void register so yanked text stays
 vim.keymap.set("x", "<leader>p", [["_dP]])
+-- cut character into void register, in normal mode only
+vim.keymap.set("n", "x", [["_x]])
 
 -- yank into system clipboard, h/t : asbjornHaland
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 -- same thing but for a line
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 
-vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
 
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 vim.keymap.set("n", "<leader>f", vim.lsp.buf.format)
 
+-- quickfix shortcuts
 -- TODO: replace these mappings with something non-conflicting
 -- vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
 -- vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
@@ -73,12 +72,8 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
--- edit and source config files
-vim.keymap.set("n", "<leader>vv", ":vsp $MYVIMRC<CR>")
-vim.keymap.set("n", "<leader>vz", ":vsp ~/.zshrc<CR>")
-vim.keymap.set("n", "<leader>sv", ":source $MYVIMRC<CR>")
-vim.keymap.set("n", "<leader>sz", ":source ~/.zshrc<CR>")
+-- toggle colorcolumn
+vim.keymap.set("n","<leader>cc", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>')
 
 -- apache reload for website
 vim.keymap.set("n", "<leader>rr", ":!sudo apache2 restart<CR><CR>")
-

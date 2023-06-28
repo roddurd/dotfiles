@@ -72,7 +72,7 @@ vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
 
--- toggle colorcolumn
+-- toggle colorcolumn at col 80
 vim.keymap.set("n","<leader>cc", ':execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>')
 
 -- apache reload for website

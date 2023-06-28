@@ -64,8 +64,5 @@ vim.opt.isfname:append("@-@")
 -- speedy
 vim.o.updatetime = 50
 
--- color the 80th coloumn
-vim.o.colorcolumn = "80"
-
 -- faster macros
 vim.g.lazyredraw = true

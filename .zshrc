@@ -8,6 +8,7 @@ set_prompt() {
     PS1="%F{red}[%F{blue}%n %F{cyan}%c%F{red}]%F{green}$(parse_git_branch)%f $%b "
 }
 # updates prompt every time a command is run
+set_prompt
 precmd_functions+=set_prompt
 
 # Homebrew aliases

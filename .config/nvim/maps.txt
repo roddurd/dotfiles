@@ -52,10 +52,23 @@ TODO: fill out the rest
 
 Surround
 --------
-surround motion in character                                      ys[...][char]
+(normal)
+surround motion                                                   ys[...][char]
+surround line                                                         yss[char]
+surround sentence                                                    ysas[char]
 delete surrounding character                                           ds[char]
 change surrounding character                                   cs[char1][char2]
+(visual)
+surround selection                                                    yss[char]
 
+Tree
+----
+show shortcuts!                                                              g?
+create file/dir (add / to end of name for dir)                                a
+copy   file/dir                                                               c
+delete file/dir                                                               d
+paste  file/dir                                                               p
+rename file/dir                                                               r
 
 
 Misc

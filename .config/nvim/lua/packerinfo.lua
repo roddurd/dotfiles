@@ -91,6 +91,23 @@ return packer.startup(function(use)
         }
     }
 
+    use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
+    use("jayp0521/mason-null-ls.nvim")     -- bridges gap b/w mason & null-ls
+
+    -- configuring lsp servers
+    -- use("neovim/nvim-lspconfig") -- easily configure language servers
+    -- use("hrsh7th/cmp-nvim-lsp") -- for autocompletion
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        requires = {
+            { "nvim-tree/nvim-web-devicons" },
+            { "nvim-treesitter/nvim-treesitter" },
+        },
+    })                                        -- enhanced lsp uis
+    use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
+    use("onsails/lspkind.nvim")               -- vs-code like icons for autocompletion
+
     use("folke/zen-mode.nvim")
     use("github/copilot.vim")
     use("eandrju/cellular-automaton.nvim")

@@ -10,7 +10,7 @@
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 #
-
+padding=12
 # global settings
 yabai -m config                                 \
     mouse_follows_focus          off            \
@@ -37,11 +37,11 @@ yabai -m config                                 \
     split_ratio                  0.50           \
     split_type                   auto           \
     auto_balance                 off            \
-    top_padding                  03             \
-    bottom_padding               03             \
-    left_padding                 03             \
-    right_padding                03             \
-    window_gap                   03             \
+    top_padding                  $padding       \
+    bottom_padding               $padding       \
+    left_padding                 $padding       \
+    right_padding                $padding       \
+    window_gap                   $padding       \
     layout                       bsp            \
     mouse_modifier               fn             \
     mouse_action1                move           \

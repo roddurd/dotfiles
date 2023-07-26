@@ -37,6 +37,7 @@ alias grep="grep --color=auto"
 alias ls="ls --color"
 alias n=nvim
 alias v=vim
+alias yd=youtube-dl
 # try forcing myself to use nvim always
 #alias vim=nvim
 

@@ -24,6 +24,7 @@ alias dot="cd ~/dotfiles"
 if [ $(whoami) = 'roddur' ]; then
     alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
     alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
+    alias m="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Music"
     alias rd="ssh rd"
 else
     alias c="cd /Users/206764881/Library/CloudStorage/OneDrive-NBCUniversal/My\ Documents/Code/"
@@ -34,10 +35,22 @@ fi
 alias df="df -h"
 alias free="free -m"
 alias grep="grep --color=auto"
-alias ls="ls --color"
+alias ls="ls -a --color"
 alias n=nvim
 alias v=vim
-alias yd=youtube-dl
+alias yd=yt-dlp
+alias ydw='yt-dlp -v -x --audio-format wav'
+# download with timestamps. arguments are timestamp and URL. e.g. `ydw "*1:01-3:03" "[URL]"`
+alias ydt='yt-dlp --download-sections'
+
+function vid2wav() {
+    ffmpeg -i $1 -vn -acodec pcm_s16le -ac 2 -ar 44100 -y $1.wav
+
+}
+# download from a specified timestamp range. takes 7 arguments:
+# hour_in min_in sec_in hour_out min_out sec_out URL
+
+
 # try forcing myself to use nvim always
 #alias vim=nvim
 

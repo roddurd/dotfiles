@@ -1,30 +1,63 @@
-# focus window
-alt - j : yabai -m window --focus south
-alt - k : yabai -m window --focus north
-alt - h : yabai -m window --focus west
-alt - l : yabai -m window --focus east
 
-# focus monitor
-alt - q : yabai -m display --focus west
-alt - w : yabai -m display --focus east
+# removing blacklist FL studio because I want
+# to make a mapping to F2 so I can rename shit faster
+# .blacklist [
+#    "fl studio"
+#]
+
+# testing mappings for f2
+# 2 is 0x13 and f2 is 0x90
+# WORKS: ctrl + alt - h: skhd -k "h"
+alt - r: skhd -k "f2"
+# doesn't: ctrl + alt - 0x90 : skhd -k "h"
+
+# focus window
+alt - j  [
+    "fl studio" ~
+    * : yabai -m window --focus south
+]
+alt - k  [
+    "fl studio" ~
+    * : yabai -m window --focus north
+]
+alt - h  [
+    "fl studio" ~
+    * : yabai -m window --focus west
+]
+alt - l  [
+    "fl studio" ~
+    * : yabai -m window --focus east
+]
 
 # -- Modifying the Layout --
 
 # rotate layout clockwise
-alt - r : yabai -m space --rotate 270
+shift + alt - r : yabai -m space --rotate 270
 
 # flip along y-axis
-alt - y : yabai -m space --mirror y-axis
+alt - y  [
+    "fl studio" ~
+    * : yabai -m space --mirror y-axis
+]
 
 # flip along x-axis
-alt - x : yabai -m space --mirror x-axis
+alt - x  [
+    "fl studio" ~
+    * : yabai -m space --mirror x-axis
+]
 
 # toggle window float
-alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+alt - t  [
+    "fl studio" ~
+    * : yabai -m window --toggle float --grid 4:4:1:1:2:2
+]
 
 # -- Modifying Window Size --
 # maximize a window
-alt - m : yabai -m window --toggle zoom-fullscreen
+alt - m  [
+    "fl studio" ~
+    * : yabai -m window --toggle zoom-fullscreen
+]
 
 # balance out tree of windows (resize to occupy same area)
 shift + alt - e : yabai -m space --balance
@@ -55,6 +88,16 @@ ctrl + alt - l : yabai -m window --warp east
 # move window to display left and right
 shift + alt - s : yabai -m window --display west; yabai -m display --focus west;
 shift + alt - g : yabai -m window --display east; yabai -m display --focus east;
+
+# focus display left or right
+alt - s  [
+    "fl studio" ~
+    * : yabai -m display --focus west;
+]
+alt - g  [
+    "fl studio" ~
+    * : yabai -m display --focus east;
+]
 
 
 # move window to prev and next space

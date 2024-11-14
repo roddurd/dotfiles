@@ -16,6 +16,7 @@ alias bi="brew install"
 alias bic="brew install --cask"
 alias bin="brew info"
 alias bs="brew search"
+alias bun="brew uninstall"
 
 # Quick navigation (user dependent)
 alias h="cd ~"
@@ -39,9 +40,10 @@ alias ls="ls -a --color"
 alias n=nvim
 alias v=vim
 alias yd=yt-dlp
-alias ydw='yt-dlp -v -x --audio-format wav'
+alias ydw='yt-dlp -x --audio-format wav'
 # download with timestamps. arguments are timestamp and URL. e.g. `ydw "*1:01-3:03" "[URL]"`
-alias ydt='yt-dlp --download-sections'
+alias ydt='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --download-sections'
+alias ydwt='yt-dlp -x --audio-format wav --download-sections'
 
 function vid2wav() {
     ffmpeg -i $1 -vn -acodec pcm_s16le -ac 2 -ar 44100 -y $1.wav

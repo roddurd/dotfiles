@@ -45,6 +45,7 @@ alt - y  [
 # flip along x-axis
 alt - x  [
     "fl studio" ~
+    "davinci resolve" ~
     * : yabai -m space --mirror x-axis
 ]
 

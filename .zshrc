@@ -25,8 +25,10 @@ alias dot="cd ~/dotfiles"
 if [ $(whoami) = 'roddur' ]; then
     alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
     alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
+    alias e="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Videos/Edit"
     alias m="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Music"
-    alias rd="ssh rd"
+    alias boi="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code/boi-rd"
+    alias rd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code/roddur.xyz"
 else
     alias c="cd /Users/206764881/Library/CloudStorage/OneDrive-NBCUniversal/My\ Documents/Code/"
     alias d="cd /Users/206764881/Library/CloudStorage/OneDrive-NBCUniversal/My\ Documents/"
@@ -40,10 +42,15 @@ alias ls="ls -a --color"
 alias n=nvim
 alias v=vim
 alias yd=yt-dlp
+alias ydm='yt-dlp  S vcodec:h264,res,acodec:m4at-dlp'
 alias ydw='yt-dlp -x --audio-format wav'
 # download with timestamps. arguments are timestamp and URL. e.g. `ydw "*1:01-3:03" "[URL]"`
 alias ydt='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --download-sections'
 alias ydwt='yt-dlp -x --audio-format wav --download-sections'
+
+function webm2mp4() {
+    ffmpeg -fflags +genpts -i $1.webm -r 24 $1.mp4
+}
 
 function vid2wav() {
     ffmpeg -i $1 -vn -acodec pcm_s16le -ac 2 -ar 44100 -y $1.wav

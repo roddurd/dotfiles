@@ -13,6 +13,25 @@ alt - n: skhd -k "f4"
 alt - r: skhd -k "f2"
 # doesn't: ctrl + alt - 0x90 : skhd -k "h"
 
+# testing; remove
+
+# --------------- for ableton ----------
+alt - d [
+    "Live": skhd -k "0"
+]
+
+# tilde for delete
+0x32 [
+    "Live": skhd -k "backspace"
+]
+
+cmd - q [
+    "Live": skhd -k "cmd - u"
+]
+
+# --------------------------------------
+
+
 # focus window
 alt - j  [
     "fl studio" ~
@@ -39,6 +58,7 @@ shift + alt - r : yabai -m space --rotate 270
 # flip along y-axis
 alt - y  [
     "fl studio" ~
+    "davinci resolve" ~
     * : yabai -m space --mirror y-axis
 ]
 

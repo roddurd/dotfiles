@@ -23,10 +23,13 @@ alias h="cd ~"
 alias con="cd ~/.config"
 alias dot="cd ~/dotfiles"
 if [ $(whoami) = 'roddur' ]; then
+    alias a="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Videos/0\ Edit/assets"
+    alias b="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Music/Beats/2024/2024-11"
     alias c="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code"
     alias d="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents"
     alias e="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Videos/Edit"
     alias m="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Music"
+    alias sd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Music/Song\ Downloads"
     alias boi="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code/boi-rd"
     alias rd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Documents/Code/roddur.xyz"
 else
@@ -43,10 +46,109 @@ alias n=nvim
 alias v=vim
 alias yd=yt-dlp
 alias ydm='yt-dlp  S vcodec:h264,res,acodec:m4at-dlp'
-alias ydw='yt-dlp -x --audio-format wav'
-# download with timestamps. arguments are timestamp and URL. e.g. `ydw "*1:01-3:03" "[URL]"`
-alias ydt='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" --download-sections'
-alias ydwt='yt-dlp -x --audio-format wav --download-sections'
+#alias ydw='yt-dlp -x --audio-format wav'
+function ydw() {
+    local url="$1"
+    local filename="$2"
+
+    if [ -z "$filename" ]; then
+        yt-dlp -x --audio-format wav "$url"
+    else
+        yt-dlp -x --audio-format wav -o "$filename.%(ext)s" "$url"
+    fi
+    eval "open ."
+}
+
+function ydv() {
+    local url="$1"
+    local filename="${2:-video}"
+
+    # Download with best video quality
+    yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best" -o "$filename.%(ext)s" "$url"
+
+    # If the result is webm, convert to mp4
+    if [ -f "$filename.webm" ]; then
+        ffmpeg -fflags +genpts -i "$filename.webm" -r 24 "$filename.mp4"
+        rm "$filename.webm"
+    fi
+    eval "open ."
+}
+
+# DOWNLOADING WITH TIMESTAMPS
+# Base function for downloading with timestamps
+# Audio with timestamps - direct implementation
+function ydts() {
+    local format_args="$1"
+    local range="$2"
+    local url="$3"
+    local filename="${4:-clip}"
+    
+    # Use eval to properly handle the format arguments
+    eval "yt-dlp $format_args --download-sections \"*$range\" -o \"$filename.%(ext)s\" \"$url\""
+}
+
+# Audio with timestamps
+function ydwt() {
+    local start="$1"
+    local end="$2"
+    local url="$3"
+    local filename="${4:-clip}"
+
+    # Make sure the timestamp format includes *
+    local range="*$start-$end"
+    local cmd="yt-dlp -x --audio-format wav --download-sections \"$range\" -o \"$filename.%(ext)s\" \"$url\""
+
+    # Debug output
+    echo "Executing audio command: $cmd"
+
+    # Execute the command
+    eval "$cmd"
+    eval "open ."
+}
+
+
+# Video with timestamps
+
+# Additional function to check and fix video if needed
+function ydvt() {
+    local start="$1"
+    local end="$2"
+    local url="$3"
+    local filename="${4:-clip}"
+
+    # Make sure the timestamp format includes *
+    local range="*$start-$end"
+    local cmd="yt-dlp --format \"bestvideo+bestaudio/best\" --merge-output-format mp4 --download-sections \"$range\" -o \"$filename.%(ext)s\" \"$url\""
+
+    # Debug output
+    echo "Executing video command: $cmd"
+
+    # Execute the command
+    eval "$cmd"
+
+    # Check if the file exists and has video
+    if [ -f "$filename.mp4" ]; then
+        echo "Checking video content in $filename.mp4..."
+        # Check if file has video stream
+        local has_video=$(ffprobe -v error -select_streams v:0 -show_entries stream=codec_type -of csv=p=0 "$filename.mp4")
+
+        if [ -z "$has_video" ]; then
+            echo "No video stream found. Trying to re-download with different options..."
+            local retry_cmd="yt-dlp --format \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/best\" --download-sections \"$range\" -o \"${filename}_retry.%(ext)s\" \"$url\""
+            echo "Retry command: $retry_cmd"
+            eval "$retry_cmd"
+
+            if [ -f "${filename}_retry.mp4" ]; then
+                mv "${filename}_retry.mp4" "$filename.mp4"
+            fi
+        fi
+    fi
+    eval "open ."
+}
+
+
+
+
 
 function webm2mp4() {
     ffmpeg -fflags +genpts -i $1.webm -r 24 $1.mp4
@@ -56,12 +158,8 @@ function vid2wav() {
     ffmpeg -i $1 -vn -acodec pcm_s16le -ac 2 -ar 44100 -y $1.wav
 
 }
-# download from a specified timestamp range. takes 7 arguments:
-# hour_in min_in sec_in hour_out min_out sec_out URL
 
 
-# try forcing myself to use nvim always
-#alias vim=nvim
 
 # fzf functions
 # magic cd with optional argument to prefill query
